@@ -58,8 +58,8 @@ jobs:
       - name: NPM install
         run: npm install
 
-      - name: NPM RUN
-        run: npm run --silent production
+      #- name: NPM RUN
+      #  run: npm run --silent production
 
       - name: Migrations
         run: php artisan migrate

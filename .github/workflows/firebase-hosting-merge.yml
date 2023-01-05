@@ -19,17 +19,17 @@ jobs:
           projectId: laravel-bootcamp-chirp
       
       - name: Setup MySQL
-          uses: mirromutth/mysql-action@v1.1
-          with:
-            mysql database: 'chirper' # Optional, default value is "test". The specified database which will be create
-            mysql user: 'chirper' # Required if "mysql root password" is empty, default is empty. The superuser for the specified database. Can use secrets, too
-            mysql password: ${{ secrets.DATABASEPASSWORD }} # Required if "mysql user" exists. The password for the "mysql user"
+        uses: mirromutth/mysql-action@v1.1
+        with:
+          mysql database: 'chirper' # Optional, default value is "test". The specified database which will be create
+          mysql user: 'chirper' # Required if "mysql root password" is empty, default is empty. The superuser for the specified database. Can use secrets, too
+          mysql password: ${{ secrets.DATABASEPASSWORD }} # Required if "mysql user" exists. The password for the "mysql user"
 
       - name: MySql version
         run: mysql --version
 
       - name: Setup PHP Action
-          uses: shivammathur/setup-php@2.23.0
+        uses: shivammathur/setup-php@2.23.0
 
       - name: PHP version
         run: php --version

@@ -37,6 +37,12 @@ jobs:
       - name: Node version
         run: node --version
 
+      - name: test file
+        run: cat .env.example
+
+      - name: NPM version
+        run: npm --version
+
       #- name: Install dependencies
       #  run: composer install
 

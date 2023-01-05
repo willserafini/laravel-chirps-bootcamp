@@ -17,11 +17,34 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_LARAVEL_BOOTCAMP_CHIRP }}'
           channelId: live
           projectId: laravel-bootcamp-chirp
-      - name: Install dependencies
-        run: composer install
-      - name: Dump
-        run: composer dump-autoload
-      - name: NPM RUN
-        run: npm run --silent production
-      - name: Serve
-        run: php artisan serve --port 8000 &
+      
+      - name: Setup MySQL
+          uses: mirromutth/mysql-action@v1.1
+          with:
+            mysql database: 'chirper' # Optional, default value is "test". The specified database which will be create
+            mysql user: 'chirper' # Required if "mysql root password" is empty, default is empty. The superuser for the specified database. Can use secrets, too
+            mysql password: ${{ secrets.DATABASEPASSWORD }} # Required if "mysql user" exists. The password for the "mysql user"
+
+      - name: MySql version
+        run: mysql --version
+
+      - name: Setup PHP Action
+          uses: shivammathur/setup-php@2.23.0
+
+      - name: PHP version
+        run: php --version
+
+      - name: Node version
+        run: node --version
+
+      #- name: Install dependencies
+      #  run: composer install
+
+      #- name: Dump
+      #  run: composer dump-autoload
+
+      #- name: NPM RUN
+      #  run: npm run --silent production
+
+      #- name: Serve
+      #  run: php artisan serve --port 8000 &

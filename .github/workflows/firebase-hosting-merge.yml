@@ -34,23 +34,29 @@ jobs:
       - name: PHP version
         run: php --version
 
+      - name: PHP Modules
+        run: php -m
+
       - name: Node version
         run: node --version
-
-      - name: test file
-        run: cat .env.example
 
       - name: NPM version
         run: npm --version
 
-      #- name: Install dependencies
-      #  run: composer install
+      - name: Redis version
+        run: redis-server --version
+      
+      - name: Create env file
+        run: cp .env.example .env
 
-      #- name: Dump
-      #  run: composer dump-autoload
+      - name: Install dependencies
+        run: composer install
 
-      #- name: NPM RUN
-      #  run: npm run --silent production
+      - name: NPM RUN
+        run: npm run --silent production
 
-      #- name: Serve
-      #  run: php artisan serve --port 8000 &
+      - name: Migrations
+        run: php artisan migrate
+
+      - name: Serve
+        run: php artisan serve --host 0.0.0.0

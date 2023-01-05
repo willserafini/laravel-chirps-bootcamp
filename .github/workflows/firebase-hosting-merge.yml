@@ -17,3 +17,10 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_LARAVEL_BOOTCAMP_CHIRP }}'
           channelId: live
           projectId: laravel-bootcamp-chirp
+      - name: Install dependencies
+        run: composer install
+        run: composer dump-autoload
+      - name: NPM RUN
+        run: npm run --silent production
+      - name: Serve
+        run: php artisan serve --port 8000 &

@@ -43,6 +43,9 @@ jobs:
       - name: NPM version
         run: npm --version
 
+      - name: Redis Server in GitHub Actions
+        uses: supercharge/redis-github-action@1.4.0
+
       - name: Redis version
         run: redis-server --version
       

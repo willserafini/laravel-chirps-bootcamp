@@ -56,7 +56,7 @@ jobs:
         run: composer install
 
       - name: NPM RUN
-        run: npm run --silent production
+        run: npm run dev
 
       - name: Migrations
         run: php artisan migrate

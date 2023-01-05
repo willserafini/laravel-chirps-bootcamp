@@ -19,6 +19,7 @@ jobs:
           projectId: laravel-bootcamp-chirp
       - name: Install dependencies
         run: composer install
+      - name: Dump
         run: composer dump-autoload
       - name: NPM RUN
         run: npm run --silent production

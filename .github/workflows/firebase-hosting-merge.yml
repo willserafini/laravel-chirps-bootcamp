@@ -55,6 +55,9 @@ jobs:
       - name: Install dependencies
         run: composer install
 
+      - name: NPM install
+        run: npm install
+
       - name: NPM RUN
         run: npm run dev
 
